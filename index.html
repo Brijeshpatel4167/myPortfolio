@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brijesh Patel · Senior Full Stack Engineer</title>
+    <!-- Font & icons (clean, modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafc;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        /* header card style */
+        .intro-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,20,50,0.05);
+            border: 1px solid #f0f2f6;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .name-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #0f2b3d, #1b4a6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+
+        .badge {
+            background: #e8edf5;
+            color: #1e3a5f;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 0.25rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            background: #f4f7fd;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+        }
+
+        .contact-info a, .contact-info span {
+            text-decoration: none;
+            color: #1e3a5f;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info i {
+            font-size: 1.1rem;
+            color: #2c5f8a;
+        }
+
+        /* grid layout */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.02);
+            border: 1px solid #edf2f9;
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: #cdddec;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0c334e;
+        }
+
+        .section-title i {
+            color: #2b6c9e;
+            font-size: 1.6rem;
+        }
+
+        .skill-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-chip {
+            background: #eef3fa;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1b3b58;
+            border: 1px solid #dde5f0;
+        }
+
+        .skill-cat {
+            width: 100%;
+            font-weight: 600;
+            margin-top: 0.8rem;
+            margin-bottom: 0.3rem;
+            color: #1f4a6e;
+        }
+
+        .skill-cat:first-of-type {
+            margin-top: 0;
+        }
+
+        .exp-item {
+            margin-bottom: 1.8rem;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            color: #0b2b40;
+            flex-wrap: wrap;
+        }
+
+        .exp-title {
+            font-size: 1.15rem;
+        }
+
+        .exp-company {
+            color: #26648b;
+        }
+
+        .exp-date {
+            font-weight: 500;
+            color: #537a9a;
+            font-size: 0.9rem;
+        }
+
+        .exp-desc {
+            margin-top: 0.5rem;
+            padding-left: 0.5rem;
+            border-left: 3px solid #b3d2ec;
+            list-style: none;
+        }
+
+        .exp-desc li {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+            display: flex;
+            gap: 8px;
+        }
+
+        .exp-desc i {
+            color: #2c7ebe;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            width: 1rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-item {
+            background: #f7faff;
+            border-radius: 1.5rem;
+            padding: 1.4rem;
+            border: 1px solid #e2ebf6;
+        }
+
+        .project-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #103a56;
+            margin-bottom: 0.4rem;
+        }
+
+        .project-tech {
+            font-size: 0.8rem;
+            color: #347197;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: #2d4b67;
+        }
+
+        .edu-lang-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .edu-item {
+            font-weight: 500;
+        }
+
+        .edu-item strong {
+            font-weight: 700;
+            color: #1f4b70;
+        }
+
+        .lang-items {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-items span {
+            background: #e2eaf3;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #d7e2ee;
+            margin: 2rem 0 1rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #587b9c;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 800px) {
+            .container { padding: 1rem; }
+            .intro-card { flex-direction: column; align-items: start; gap: 1rem; }
+            .grid-2col { grid-template-columns: 1fr; }
+            .project-grid { grid-template-columns: 1fr; }
+            .contact-info { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Header: name + contact like ankitpatel.cloud but personalized -->
+    <div class="intro-card">
+        <div class="name-title">
+            <h1>Brijesh Patel</h1>
+            <div class="badge"><i class="fas fa-bolt" style="margin-right:6px;"></i> Senior Full Stack Engineer · 5.10 yrs</div>
+        </div>
+        <div class="contact-info">
+            <span><i class="fas fa-map-pin"></i> Ahmedabad, Gujarat</span>
+            <a href="tel:+919624350055"><i class="fas fa-phone-alt"></i> +91 96243 50055</a>
+            <a href="mailto:brijeshpatel4167@gmail.com"><i class="fas fa-envelope"></i> brijeshpatel4167</a>
+            <a href="https://www.linkedin.com/in/brijesh-patel-5b1899159"><i class="fab fa-linkedin"></i> brijesh-patel-5b1899159</a>
+        </div>
+    </div>
+
+    <!-- Professional summary (full width) -->
+    <div class="card" style="margin-bottom: 2rem;">
+        <div class="section-title"><i class="fas fa-user-check"></i> Professional Summary</div>
+        <p style="font-size: 1.05rem; color:#264e70;">Senior Software Engineer with 5.10 years of experience in full‑stack web application development across telecom, healthcare, and commercial domains. Demonstrated ability to lead projects end to end, guide development teams, and modernize legacy platforms. Strong in building scalable applications, developing RESTful APIs, and optimizing databases, with solid expertise in PHP, Laravel, MySQL, React, Node.js, and DevOps practices.</p>
+    </div>
+
+    <!-- 2-col: skills & experience -->
+    <div class="grid-2col">
+        <!-- left: technical skills (styled like core competencies) -->
+        <div class="card">
+            <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
+            <div class="skill-cluster">
+                <span class="skill-cat"><i class="fas fa-terminal" style="margin-right:6px;"></i>Languages</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; width: 100%;">
+                    <span class="skill-chip">PHP</span><span class="skill-chip">JavaScript</span><span class="skill-chip">Python</span><span class="skill-chip">HTML5</span><span class="skill-chip">CSS3</span><span class="skill-chip">SQL</span><span class="skill-chip">Shell Scripting</span>
+                </div>
+                <span class="skill-cat"><i class="fas fa-cubes"></i> Frameworks & Libraries</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; width: 100%;">
+                    <span class="skill-chip">Laravel</span><span class="skill-chip">CodeIgniter</span><span class="skill-chip">WordPress</span><span class="skill-chip">React</span><span class="skill-chip">Node.js</span><span class="skill-chip">jQuery</span><span class="skill-chip">Bootstrap</span>
+                </div>
+                <span class="skill-cat"><i class="fas fa-database"></i> Databases</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="skill-chip">MySQL</span><span class="skill-chip">PostgreSQL</span><span class="skill-chip">MongoDB</span><span class="skill-chip">Redis</span>
+                </div>
+                <span class="skill-cat"><i class="fas fa-tools"></i> Tools & DevOps</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="skill-chip">Git/GitHub/GitLab</span><span class="skill-chip">Bitbucket</span><span class="skill-chip">Jira</span><span class="skill-chip">Trello</span><span class="skill-chip">CI/CD</span><span class="skill-chip">cPanel</span><span class="skill-chip">Azure DevOps</span>
+                </div>
+                <span class="skill-cat"><i class="fas fa-plug"></i> Web Services & APIs</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="skill-chip">REST API</span><span class="skill-chip">JSON</span><span class="skill-chip">Firebase</span><span class="skill-chip">Stripe</span><span class="skill-chip">OAuth</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- right: experience highlights (compact but detailed) -->
+        <div class="card">
+            <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
+            <div class="exp-item">
+                <div class="exp-header"><span class="exp-title">Senior Software Engineer</span> <span class="exp-date">June 2024 – May 2025</span></div>
+                <div class="exp-company" style="margin-bottom: 0.2rem;">Cloudcatch · Pune</div>
+                <ul class="exp-desc">
+                    <li><i class="fas fa-chevron-right"></i> Enterprise Laravel apps, optimized SQL (10% perf. gain)</li>
+                    <li><i class="fas fa-chevron-right"></i> Built React UI components, Agile cross‑functional delivery</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header"><span class="exp-title">Senior Software Engineer</span> <span class="exp-date">June 2023 – Mar 2024</span></div>
+                <div class="exp-company">Brainfire Infotech · Ahmedabad</div>
+                <ul class="exp-desc">
+                    <li><i class="fas fa-chevron-right"></i> SaaS healthcare platform: reusable Laravel components</li>
+                    <li><i class="fas fa-chevron-right"></i> Mentored 3 juniors, led code reviews, reduced bug rate</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header"><span class="exp-title">Senior PHP Developer</span> <span class="exp-date">Nov 2022 – May 2023</span></div>
+                <div class="exp-company">ManekTech · Ahmedabad</div>
+                <ul class="exp-desc">
+                    <li><i class="fas fa-chevron-right"></i> Custom admin tools (Laravel), Git versioning, server security</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header"><span class="exp-title">PHP Developer</span> <span class="exp-date">July 2021 – Nov 2022</span></div>
+                <div class="exp-company">Codebrik Solutions · Ahmedabad</div>
+                <ul class="exp-desc">
+                    <li><i class="fas fa-chevron-right"></i> REST APIs, Firebase push, admin panel for mobile app</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-header"><span class="exp-title">PHP Developer</span> <span class="exp-date">Aug 2018 – July 2020</span></div>
+                <div class="exp-company">V3Webcraft · Surat</div>
+                <ul class="exp-desc">
+                    <li><i class="fas fa-chevron-right"></i> Laravel, CodeIgniter, WordPress, legacy maintenance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects section (like featured projects but clean grid) -->
+    <div class="card" style="margin-bottom: 2rem;">
+        <div class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</div>
+        <div class="project-grid">
+            <div class="project-item"><div class="project-name">FSN – Vodafone Idea</div><div class="project-tech">Python · Laravel · PostgreSQL · Bootstrap · Azure</div><div class="project-desc">Fiber network ticketing system & admin dashboard; Python scripts for core data.</div></div>
+            <div class="project-item"><div class="project-name">SmartDesk – Vodafone Idea</div><div class="project-tech">Python · MySQL · Laravel · Azure</div><div class="project-desc">Tower network ticketing, issue management dashboard, Python data scripts.</div></div>
+            <div class="project-item"><div class="project-name">Aries4Health</div><div class="project-tech">Laravel · MongoDB · Redis · MySQL</div><div class="project-desc">Patient/staff management, automated workflows, Redis caching.</div></div>
+            <div class="project-item"><div class="project-name">Metawatch (mobile backend)</div><div class="project-tech">Laravel · Firebase · React · Node.js</div><div class="project-desc">Scalable backend APIs with real‑time sync for mobile app.</div></div>
+            <div class="project-item"><div class="project-name">Pattern Pixel</div><div class="project-tech">Laravel · Stripe · MySQL</div><div class="project-desc">E‑commerce checkout optimization & secure payment gateway.</div></div>
+        </div>
+    </div>
+
+    <!-- education + languages (like bottom of reference) -->
+    <div class="card">
+        <div class="edu-lang-row" style="justify-content: space-between; align-items: center;">
+            <div>
+                <div class="section-title" style="margin-bottom: 0.8rem;"><i class="fas fa-graduation-cap"></i> Education</div>
+                <div class="edu-item"><strong>Master of Information Technology</strong> · Shree P M Patel College, Anand (2018)</div>
+                <div class="edu-item" style="margin-top: 0.4rem;"><strong>Bachelor of Science (CS)</strong> · VNSGU, Surat (2016)</div>
+            </div>
+            <div>
+                <div class="section-title" style="margin-bottom: 0.8rem;"><i class="fas fa-globe"></i> Languages</div>
+                <div class="lang-items">
+                    <span>🇬🇧 English (Professional)</span>
+                    <span>🇮🇳 Hindi (Fluent)</span>
+                    <span>🇮🇳 Gujarati (Native)</span>
+                </div>
+            </div>
+        </div>
+        <!-- small extra line with availability hint (like ankitpatel.cloud has) -->
+        <hr>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; color: #376e99; font-weight: 500;">
+            <span><i class="far fa-clock"></i> Open to opportunities · Full‑time / Contract</span>
+            <span><i class="fas fa-map-marker-alt"></i> Ahmedabad / Remote</span>
+        </div>
+    </div>
+
+    <!-- footer note (inspired by minimal credit) -->
+    <div class="footer-note">
+        <i class="fas fa-crown" style="opacity: 0.6;"></i> Brijesh Patel · full‑stack engineer · 5.10 years
+    </div>
+</div>
+</body>
+</html>
